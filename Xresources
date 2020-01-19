@@ -1,0 +1,30 @@
+! --- URXVT ---
+! font
+urxvt*font: xft:Droid Sans Mono for Powerline:pixelsize=14
+
+! disable scrollbar
+URxvt.scrollBar: false
+
+! required for transparency
+URxvt.depth: 32
+
+! colors
+URxvt.cursor: #aec3c0
+URxvt.background: [80]#000000
+URxvt.foreground: #aec3c0
+URxvt.color0: #05181D
+URxvt.color1: #5C4058
+URxvt.color2: #982C33
+URxvt.color3: #A4304F
+URxvt.color4: #C24658
+URxvt.color5: #445A90
+URxvt.color6: #B8609C
+URxvt.color7: #aec3c0
+URxvt.color8: #798886
+URxvt.color9: #5C4058
+URxvt.color10: #982C33
+URxvt.color11: #A4304F
+URxvt.color12: #C24658
+URxvt.color13: #445A90
+URxvt.color14: #B8609C
+URxvt.color15: #aec3c0

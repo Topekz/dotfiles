@@ -1,0 +1,111 @@
+[colors]
+black = #000000
+white = #ffffff 
+red = #e53935
+blue = #1e88e5
+green = #43a047
+yellow = #fdd835
+orange = #fb8c00
+grey = #757575
+bg = #05181D
+fg = #ffffff
+accent = #C24658
+
+[bar/mybar]
+width = 100%
+height = 24
+line-size = 2
+
+border-size = 0
+border-color = ${colors.accent}
+
+background = ${colors.bg}
+foreground = ${colors.fg}
+
+module-margin-left = 0
+module-margin-right = 0
+
+padding-left = 0
+padding-right = 0
+
+tray-position = none
+
+font-0 = "Noto Sans Mono:pixelsize=12;2"
+font-1 = "Droid Sans Mono for Powerline:pixelsize=17;4"
+
+cursor-click = pointer
+
+scrollup = i3wm-wsnext
+scrolldown = i3wm-wsprev
+
+modules-left = i3
+modules-center = date time
+modules-right = arrow wireless-network battery pulseaudio
+
+[module/arrow]
+type = custom/text
+content = ""
+content-foreground = ${colors.accent}
+
+[module/date]
+type = internal/date
+interval = 1i
+date = %d-%m-%Y
+
+label =  %date% 
+
+[module/time]
+type = internal/date
+interval = 1
+time = %H:%M
+
+label =  %time% 
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter ADP1
+poll-interval = 5
+
+label-full-background = ${colors.accent}
+label-charging-background = ${colors.accent}
+label-discharging-background = ${colors.accent}
+
+label-full =  Battery: Full 
+label-charging =  Charging: %percentage%% 
+label-discharging = Battery: %percentage%% 
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+interval = 5
+use-ui-max = false
+
+label-volume-background = ${colors.accent}
+label-muted-background = ${colors.accent}
+
+label-muted-foreground = ${colors.bg}
+label-volume =  Volume: %percentage%% 
+label-muted =  Volume: muted 
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
+
+label-connected-background = ${colors.accent}
+label-disconnected-background = ${colors.accent} 
+
+label-disconnected-foreground = ${colors.bg}
+label-connected = "%{A1:networkmanager_dmenu &:} WLAN: %essid% %{A}"
+label-disconnected = "%{A1:networkmanager_dmenu &:} WLAN: disconnected %{A}"
+
+[module/i3]
+type = internal/i3
+index-sort = true
+
+label-focused = " %index% "
+label-focused-background = ${colors.accent}
+label-unfocused = " %index% "
+label-visible = " %index% "
+label-visible-underline = ${colors.accent}
+label-urgent = " %index% "
