@@ -5,3 +5,6 @@ ZSH_THEME="agnoster"
 plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
+
+#vi mode
+bindkey -v

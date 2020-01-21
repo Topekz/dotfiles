@@ -6,15 +6,16 @@ font pango:Noto Sans Mono Regular 10
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# nm-applet is a desktop environment-independent system tray GUI
-#exec --no-startup-id nm-applet
-
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Adjust screen brightness using xbacklight
+bindsym XF86MonBrightnessUp exec xbacklight +5
+bindsym XF86MonBrightnessDown exec xbacklight -5
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -24,6 +25,14 @@ bindsym $mod+Return exec urxvt
 
 # start browser
 bindsym $mod+w exec firefox
+bindsym $mod+Shift+w exec qutebrowser
+
+# start file browser
+bindsym $mod+f exec urxvt -e 'ranger'
+bindsym $mod+Shift+f exec thunar
+
+# start bitwarde (password manager)
+bindsym $mod+b exec bitwarden-desktop
 
 # start screenshot tool
 bindsym $mod+s exec xfce4-screenshooter
@@ -44,12 +53,24 @@ bindsym $mod+i exec networkmanager_dmenu
 bindsym $mod+Tab exec rofi -show
 
 # change focus
+# vim keys
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+# arrows
 bindsym $mod+Left focus left
 bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move window
+# vim keys
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+# arrows
 bindsym $mod+Shift+Left move left
 bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
@@ -59,13 +80,13 @@ bindsym $mod+Shift+Right move right
 bindsym $mod+t split toggle
 
 # enter fullscreen mode for the focused container
-bindsym $mod+f fullscreen toggle
+bindsym $mod+a fullscreen toggle
 
 # change container layout
 bindsym $mod+e layout toggle splith tabbed
 
 # toggle tiling / floating
-bindsym $mod+a floating toggle
+bindsym $mod+Shift+a floating toggle
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
@@ -113,6 +134,12 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # resize window
 mode "resize" {
+	# vim keys
+	bindsym h resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym l resize grow width 10 px or 10 ppt
+	# arrows
         bindsym Left resize shrink width 10 px or 10 ppt
         bindsym Down resize grow height 10 px or 10 ppt
         bindsym Up resize shrink height 10 px or 10 ppt
@@ -130,6 +157,15 @@ bindsym $mod+r mode "resize"
 gaps inner 10
 gaps outer 0
 smart_gaps on
+#gaps settings
+set $mode_gaps Gaps: (1) on (2) off
+bindsym $mod+g mode "$mode_gaps"
+mode "$mode_gaps" {
+    bindsym 1 mode "default", gaps inner all set 10, gaps outer all set 5
+    bindsym 2 mode "default", gaps inner all set 0, gaps outer all set 0
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 # polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
@@ -145,4 +181,4 @@ hide_edge_borders smart
 exec --no-startup-id nitrogen --restore
 
 # app settings
-for_window [class="Viewnior"] floating enable
+#for_window [class="feh"] floating enable, resize set 1080 720, move position center

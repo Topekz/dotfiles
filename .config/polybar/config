@@ -10,6 +10,9 @@ grey = #757575
 bg = #05181D
 fg = #ffffff
 accent = #C24658
+accent1 = #C24658
+accent2 = #A4304F
+accent3 = #5C4058
 
 [bar/mybar]
 width = 100%
@@ -39,27 +42,33 @@ scrollup = i3wm-wsnext
 scrolldown = i3wm-wsprev
 
 modules-left = i3
-modules-center = date time
-modules-right = arrow wireless-network battery pulseaudio
+modules-center = date
+modules-right = arrow wireless-network arrow2 battery arrow3 xbacklight pulseaudio
 
 [module/arrow]
 type = custom/text
 content = ""
-content-foreground = ${colors.accent}
+content-foreground = ${colors.accent3}
+
+[module/arrow2]
+type = custom/text
+content = ""
+content-foreground = ${colors.accent2}
+content-background = ${colors.accent3}
+
+[module/arrow3]
+type = custom/text
+content = ""
+content-foreground = ${colors.accent1}
+content-background = ${colors.accent2}
 
 [module/date]
 type = internal/date
-interval = 1i
-date = %d-%m-%Y
-
-label =  %date% 
-
-[module/time]
-type = internal/date
 interval = 1
 time = %H:%M
+date = %d-%m
 
-label =  %time% 
+label = %date% %time%
 
 [module/battery]
 type = internal/battery
@@ -67,13 +76,13 @@ battery = BAT0
 adapter ADP1
 poll-interval = 5
 
-label-full-background = ${colors.accent}
-label-charging-background = ${colors.accent}
-label-discharging-background = ${colors.accent}
+label-full-background = ${colors.accent2}
+label-charging-background = ${colors.accent2}
+label-discharging-background = ${colors.accent2}
 
-label-full =  Battery: Full 
-label-charging =  Charging: %percentage%% 
-label-discharging = Battery: %percentage%% 
+label-full =  Batt: Full 
+label-charging =  BATT: %percentage%% 
+label-discharging = BATT: %percentage%% 
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -81,23 +90,28 @@ type = internal/pulseaudio
 interval = 5
 use-ui-max = false
 
-label-volume-background = ${colors.accent}
-label-muted-background = ${colors.accent}
+label-volume-background = ${colors.accent1}
+label-muted-background = ${colors.accent1}
 
 label-muted-foreground = ${colors.bg}
-label-volume =  Volume: %percentage%% 
-label-muted =  Volume: muted 
+label-volume =  VOL: %percentage%% 
+label-muted =  VOL: muted 
+
+[module/xbacklight]
+type = internal/xbacklight
+label-background = ${colors.accent1}
+label =  BL: %percentage%% 
 
 [module/wireless-network]
 type = internal/network
 interface = wlp3s0
 
-label-connected-background = ${colors.accent}
-label-disconnected-background = ${colors.accent} 
+label-connected-background = ${colors.accent3}
+label-disconnected-background = ${colors.accent3} 
 
 label-disconnected-foreground = ${colors.bg}
-label-connected = "%{A1:networkmanager_dmenu &:} WLAN: %essid% %{A}"
-label-disconnected = "%{A1:networkmanager_dmenu &:} WLAN: disconnected %{A}"
+label-connected = "%{A1:networkmanager_dmenu &:} W: %essid% %{A}"
+label-disconnected = "%{A1:networkmanager_dmenu &:} W: disconnected %{A}"
 
 [module/i3]
 type = internal/i3

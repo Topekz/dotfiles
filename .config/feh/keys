@@ -1,0 +1,5 @@
+# custom key mapping:
+zoom_in k Up  
+zoom_out j Down
+scroll_left h
+scroll_right l

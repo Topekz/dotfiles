@@ -1,0 +1,36 @@
+/* Colors */
+
+/* Replace favicon on tabs with close button on hover.
+
+Fround from here: https://old.reddit.com/r/FirefoxCSS/comments/7orkrw/tabs_change_favicon_into_close_button_on_hover/dsbx7bb/  */
+
+.tabbrowser-tab:not(:hover) .tab-close-button{ display:none; }
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{ display:block !important; }
+
+
+.tabbrowser-tab:not([pinned]):hover  .tab-icon-image {
+  display: none !important;
+}
+
+.tabbrowser-tab:hover  .tab-throbber,
+.tabbrowser-tab:hover  .tab-icon-image,
+.tabbrowser-tab:hover .tab-sharing-icon-overlay,
+.tabbrowser-tab:hover  .tab-icon-overlay,
+.tabbrowser-tab:hover  .tab-label-container,
+.tabbrowser-tab:hover  .tab-icon-sound {
+  -moz-box-ordinal-group: 2 !important;
+}
+
+.tabbrowser-tab .tab-close-button {
+  margin-left: -2px !important;
+  margin-right: 4px !important;
+}
+
+/* more tab tweaks */
+.tab-line{
+	background-color: transparent !important;
+}
+.tabbrowser-tab {
+	--tab-min-width: 200px;
+	-moz-box-flex: 0 !important;
+}
