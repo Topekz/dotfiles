@@ -2,7 +2,7 @@
 - Distro = Manjaro
 - DE = Xfce4
 - WM = i3-gaps
-- shell = zsh
+- Shell = zsh
 ## Screenshots:
 ![Screenshot](screenshots/example1.png)
 ![Screenshot](screenshots/example2.png)
