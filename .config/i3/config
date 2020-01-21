@@ -74,6 +74,8 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
+bindsym $mod+v focus mode_toggle
+
 # move window
 bindsym $mod+Shift+h move left
 bindsym $mod+Shift+j move down
