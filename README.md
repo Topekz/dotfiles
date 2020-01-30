@@ -17,7 +17,7 @@
 - browser = firefox, qutebrowser
 - terminal = urxvt
 - file manager = ranger
-- text editor = vim
+- text editor = vim, visual studio code
 - image viewer = feh
 - video player = mpv
 - pdf viewer = zathura
