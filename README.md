@@ -1,6 +1,5 @@
 # Topekz's dotfiles
-- Distro = Manjaro
-- DE = Xfce4
+- Distro = Arch
 - WM = i3-gaps
 - Shell = zsh
 ## Screenshots:
@@ -18,7 +17,7 @@
 - browser = firefox, qutebrowser
 - terminal = urxvt
 - file manager = ranger
-- text editor = Vim
+- text editor = vim
 - image viewer = feh
 - video player = mpv
 - pdf viewer = zathura
