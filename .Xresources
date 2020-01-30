@@ -1,6 +1,6 @@
 ! --- URXVT ---
 ! font
-urxvt*font: xft:Droid Sans Mono for Powerline:pixelsize=14
+urxvt*font: xft:Source Code Pro Medium:size=11
 
 ! disable scrollbar
 URxvt.scrollBar: false

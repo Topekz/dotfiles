@@ -33,31 +33,31 @@ padding-right = 0
 
 tray-position = none
 
-font-0 = "Noto Sans Mono:pixelsize=12;2"
-font-1 = "Droid Sans Mono for Powerline:pixelsize=17;4"
+font-0 = "Source Code Pro Medium:pixelsize=12;3"
+font-1 = "Source Code Pro Medium:pixelsize=18;5"
 
 cursor-click = pointer
 
-scrollup = i3wm-wsnext
-scrolldown = i3wm-wsprev
-
-modules-left = i3
+modules-left = bspwm i3
 modules-center = date
 modules-right = arrow wireless-network arrow2 battery arrow3 xbacklight pulseaudio
 
 [module/arrow]
 type = custom/text
+content-font = 2
 content = ""
 content-foreground = ${colors.accent3}
 
 [module/arrow2]
 type = custom/text
+content-font = 2
 content = ""
 content-foreground = ${colors.accent2}
 content-background = ${colors.accent3}
 
 [module/arrow3]
 type = custom/text
+content-font = 2
 content = ""
 content-foreground = ${colors.accent1}
 content-background = ${colors.accent2}
@@ -68,7 +68,7 @@ interval = 1
 time = %H:%M
 date = %d-%m
 
-label = %date% %time%
+label = " %time% %date% "
 
 [module/battery]
 type = internal/battery
@@ -80,9 +80,9 @@ label-full-background = ${colors.accent2}
 label-charging-background = ${colors.accent2}
 label-discharging-background = ${colors.accent2}
 
-label-full =  Batt: Full 
-label-charging =  BATT: %percentage%% 
-label-discharging = BATT: %percentage%% 
+label-full = " Batt: Full "
+label-charging = " BATT: %percentage%% "
+label-discharging = " BATT: %percentage%% "
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -94,13 +94,13 @@ label-volume-background = ${colors.accent1}
 label-muted-background = ${colors.accent1}
 
 label-muted-foreground = ${colors.bg}
-label-volume =  VOL: %percentage%% 
-label-muted =  VOL: muted 
+label-volume = " VOL: %percentage%% "
+label-muted = " VOL: muted "
 
 [module/xbacklight]
 type = internal/xbacklight
 label-background = ${colors.accent1}
-label =  BL: %percentage%% 
+label = " BL: %percentage%% "
 
 [module/wireless-network]
 type = internal/network
@@ -110,8 +110,18 @@ label-connected-background = ${colors.accent3}
 label-disconnected-background = ${colors.accent3} 
 
 label-disconnected-foreground = ${colors.bg}
-label-connected = "%{A1:networkmanager_dmenu &:} W: %essid% %{A}"
-label-disconnected = "%{A1:networkmanager_dmenu &:} W: disconnected %{A}"
+label-connected = "%{A1:networkmanager_dmenu &:} W: %essid% %{A}"
+label-disconnected = "%{A1:networkmanager_dmenu &:} W: disconnected %{A}"
+
+[module/bspwm]
+type = internal/bspwm
+
+label-focused = " %name% "
+label-focused-background = ${colors.accent}
+label-occupied = " %name% "
+label-urgent = " %name% "
+label-dimmed = " %name% "
+label-empty = 
 
 [module/i3]
 type = internal/i3

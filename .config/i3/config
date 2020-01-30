@@ -40,6 +40,9 @@ bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOU
 bindsym XF86MonBrightnessUp exec xbacklight +5
 bindsym XF86MonBrightnessDown exec xbacklight -5
 
+# power key
+bindsym XF86PowerOff exec ~/Scripts/powermenu.sh
+
 # -- Basic bindings -- #
 
 bindsym $mod+q kill
@@ -50,11 +53,8 @@ bindsym $mod+w exec firefox
 bindsym $mod+Shift+w exec qutebrowser
 
 bindsym $mod+e exec urxvt -e 'ranger'
-bindsym $mod+Shift+e exec thunar
 
-bindsym $mod+b exec bitwarden-desktop
-
-bindsym $mod+s exec xfce4-screenshooter
+bindsym $mod+s exec gnome-screenshot -i
 
 bindsym $mod+c exec rofi -show calc -no-history
 
@@ -164,7 +164,4 @@ bindsym $mod+r mode "resize"
 # -- Startup -- #
 
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
-exec --no-startup-id nitrogen --restore
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-

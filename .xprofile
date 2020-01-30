@@ -1,0 +1,4 @@
+light-locker &
+ibus-daemon -drx &
+nitrogen --restore &
+picom &
