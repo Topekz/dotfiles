@@ -1,4 +1,5 @@
 * {
+    font: "Noto Sans Mono Regular 12";
     active-background: #982C33;
     active-foreground: @foreground;
     normal-background: @background;

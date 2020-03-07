@@ -30,7 +30,6 @@ hide_edge_borders smart
 # -- XF86 bindings -- #
 
 # audio
-set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5% && $refresh_i3status
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
@@ -59,6 +58,7 @@ bindsym $mod+w exec firefox
 bindsym $mod+Shift+w exec qutebrowser
 
 bindsym $mod+e exec urxvt -e 'ranger'
+bindsym $mod+Shift+e exec thunar
 
 bindsym $mod+s exec gnome-screenshot -i
 

@@ -1,6 +1,6 @@
 ! --- URXVT ---
 ! font
-urxvt*font: xft:Source Code Pro Medium:size=11
+URxvt*font: xft:Source Code Pro for Powerline:size=12
 
 ! disable scrollbar
 URxvt.scrollBar: false
